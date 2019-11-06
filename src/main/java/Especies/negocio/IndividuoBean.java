@@ -11,7 +11,7 @@ public class IndividuoBean {
 
 	@Id
 	@Column
-	private int codigo;
+	private long codigo;
 	
 	@Column
 	private int peso;
@@ -19,7 +19,7 @@ public class IndividuoBean {
 	@Column
 	private String dimensiones;
 
-	public int getCodigo() {
+	public long getCodigo() {
 		return codigo;
 	}
 

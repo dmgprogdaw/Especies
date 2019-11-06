@@ -11,7 +11,7 @@ public class EspecieBean {
 
 	@Id
 	@Column
-	private int codigo;
+	private long codigo;
 	
 	@Column
 	private String nombre;
@@ -25,7 +25,7 @@ public class EspecieBean {
 	@Column
 	private String caracteristicasPrincipales;
 
-	public int getCodEspecie() {
+	public long getCodEspecie() {
 		return codigo;
 	}
 
