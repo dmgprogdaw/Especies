@@ -7,7 +7,10 @@ import Especies.negocio.EspecieBean;
 
 public class CreateEspecie {
 
-	
+	/**
+	 * Metodo para crear las especies
+	 * @param especie
+	 */
 	public void create(EspecieBean especie) {
 		
 		EntityManager entityManager = ConnectionEntityManagerFactory.getEntityManagerFactory().createEntityManager();

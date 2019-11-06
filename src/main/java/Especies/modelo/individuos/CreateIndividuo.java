@@ -7,7 +7,10 @@ import Especies.negocio.IndividuoBean;
 
 public class CreateIndividuo {
 
-	
+	/**
+	 * Metodo para crear los individuos
+	 * @param individuo
+	 */
 	public void create(IndividuoBean individuo) {
 		
 		EntityManager entityManager = ConnectionEntityManagerFactory.getEntityManagerFactory().createEntityManager();

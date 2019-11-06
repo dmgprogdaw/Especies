@@ -3,6 +3,8 @@ package Especies.negocio;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Column;
 
 @Entity
@@ -18,12 +20,24 @@ public class IndividuoBean {
 	
 	@Column
 	private String dimensiones;
+	
+	@ManyToOne
+	@JoinColumn(name="CodEspecie")
+	private EspecieBean especie;
+
+	public EspecieBean getEspecie() {
+		return especie;
+	}
+
+	public void setEspecie(EspecieBean especie) {
+		this.especie = especie;
+	}
 
 	public long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
 

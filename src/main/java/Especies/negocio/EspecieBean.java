@@ -3,6 +3,11 @@ package Especies.negocio;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 
 @Entity
@@ -24,12 +29,31 @@ public class EspecieBean {
 	
 	@Column
 	private String caracteristicasPrincipales;
+	
+	@OneToMany(mappedBy="especie")
+	private List<IndividuoBean> individuos = new ArrayList<IndividuoBean>();
+	
+	public void addIndividuo(IndividuoBean individuo) {
+		
+		if(!individuos.contains(individuo)) {
+			
+			individuos.add(individuo);
+		}
+	}
+
+	public List<IndividuoBean> getIndividuos() {
+		return individuos;
+	}
+
+	public void setIndividuos(List<IndividuoBean> individuos) {
+		this.individuos = individuos;
+	}
 
 	public long getCodEspecie() {
 		return codigo;
 	}
 
-	public void setCodEspecie(int codEspecie) {
+	public void setCodEspecie(long codEspecie) {
 		this.codigo = codEspecie;
 	}
 
