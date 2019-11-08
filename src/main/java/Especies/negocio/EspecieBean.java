@@ -3,11 +3,11 @@ package Especies.negocio;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.Column;
 
 @Entity
@@ -16,7 +16,7 @@ public class EspecieBean {
 
 	@Id
 	@Column
-	private long codigo;
+	private long codEspecie;
 	
 	@Column
 	private String nombre;
@@ -32,6 +32,7 @@ public class EspecieBean {
 	
 	@OneToMany(mappedBy="especie")
 	private List<IndividuoBean> individuos = new ArrayList<IndividuoBean>();
+	
 	
 	public void addIndividuo(IndividuoBean individuo) {
 		
@@ -49,12 +50,13 @@ public class EspecieBean {
 		this.individuos = individuos;
 	}
 
+
 	public long getCodEspecie() {
-		return codigo;
+		return codEspecie;
 	}
 
 	public void setCodEspecie(long codEspecie) {
-		this.codigo = codEspecie;
+		this.codEspecie = codEspecie;
 	}
 
 	public String getNombre() {

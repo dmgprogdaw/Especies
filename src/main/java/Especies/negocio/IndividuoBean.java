@@ -5,7 +5,10 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Column;
+import java.util.List;
+import java.util.ArrayList;
 
 @Entity
 @Table(name="individuos")
@@ -13,7 +16,7 @@ public class IndividuoBean {
 
 	@Id
 	@Column
-	private long codigo;
+	private long codIndividuo;
 	
 	@Column
 	private int peso;
@@ -24,6 +27,25 @@ public class IndividuoBean {
 	@ManyToOne
 	@JoinColumn(name="CodEspecie")
 	private EspecieBean especie;
+	
+	@OneToMany(mappedBy="individuoMovimiento")
+	private List<MovimientoBean> movimientos = new ArrayList<MovimientoBean>();
+	
+	public void addMovimientos(MovimientoBean movimiento) {
+		
+		if(!movimientos.contains(movimiento)) {
+			
+			movimientos.add(movimiento);
+		}
+	}
+	
+	public List<MovimientoBean> getMovimientos() {
+		return movimientos;
+	}
+
+	public void setMovimientos(List<MovimientoBean> movimientos) {
+		this.movimientos = movimientos;
+	}
 
 	public EspecieBean getEspecie() {
 		return especie;
@@ -33,12 +55,12 @@ public class IndividuoBean {
 		this.especie = especie;
 	}
 
-	public long getCodigo() {
-		return codigo;
+	public long getCodIndividuo() {
+		return codIndividuo;
 	}
 
-	public void setCodigo(long codigo) {
-		this.codigo = codigo;
+	public void setCodIndividuo(long codIndividuo) {
+		this.codIndividuo = codIndividuo;
 	}
 
 	public int getPeso() {
