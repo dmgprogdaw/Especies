@@ -4,8 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
+import java.util.List;
+import java.util.ArrayList;
 
 @Entity
 @Table(name="movimientos")
@@ -32,6 +35,29 @@ public class MovimientoBean {
 	@JoinColumn(name="codTorreta")
 	private TorretaBean torreta;
 	
+	@ManyToMany
+	private List<InformeBean> movimientosInforme = new ArrayList<InformeBean>();
+
+	/*public void addMivimientosInforme(InformeBean informe) {
+		
+		if(!movimientosInforme.contains(informe)) {
+			
+			movimientosInforme.add(informe);
+			List<MovimientoBean> movimiento = informe.getInformeMovimientos();
+			if(movimiento.contains(this)) {
+				movimiento.add(this);
+			}
+		}
+	}*/
+	
+	
+	public List<InformeBean> getMovimientosInforme() {
+		return movimientosInforme;
+	}
+
+	public void setMovimientosInforme(List<InformeBean> movimientosInforme) {
+		this.movimientosInforme = movimientosInforme;
+	}
 
 	public TorretaBean getTorreta() {
 		return torreta;

@@ -78,6 +78,8 @@ public class Start {
 		neko.addIndividuo(individuo2);
 		individuo1.addMovimientos(movimiento1);
 		torreta1.addMovimientoTorreta(movimiento1);
+		informe1.addInformeMovimientos(movimiento1);
+		pedro.addInformes(informe1);
 		
 		/**** CREAMOS LAS ESPECIES ****/
 		CreateEspecie especies = new CreateEspecie();

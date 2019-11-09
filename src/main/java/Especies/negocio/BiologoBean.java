@@ -3,9 +3,10 @@ package Especies.negocio;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Column;
-import javax.persistence.JoinColumn;
+import java.util.List;
+import java.util.ArrayList;
 
 @Entity
 @Table(name="biologos")
@@ -26,6 +27,34 @@ public class BiologoBean {
 	
 	@Column
 	private String fechaTitulacion;
+	
+	
+	@ManyToMany(mappedBy="biologosInforme")
+	private List<InformeBean> informesBiologo = new ArrayList<InformeBean>();
+
+	
+	public void addInformes(InformeBean informe) {
+		
+		if(!informesBiologo.contains(informe)) {
+			
+			informesBiologo.add(informe);
+			List<BiologoBean> biologos = informe.getBiologosInforme();
+			if(!biologos.contains(this)) {
+				
+				biologos.add(this);
+			}
+		}
+	}
+	
+
+	public List<InformeBean> getInformesBiologo() {
+		return informesBiologo;
+	}
+
+
+	public void setInformesBiologo(List<InformeBean> informesBiologo) {
+		this.informesBiologo = informesBiologo;
+	}
 
 
 	public long getCodBiologo() {
