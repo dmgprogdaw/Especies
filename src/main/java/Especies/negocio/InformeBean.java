@@ -32,11 +32,16 @@ public class InformeBean {
 		if(!informeMovimientos.contains(movimiento)) {
 			
 			informeMovimientos.add(movimiento);
-			List<InformeBean> informes = movimiento.getMovimientosInforme();
-			if(!informes.contains(this)) {
-				
-				informes.add(this);
-			}
+			movimiento.addMovimientosInforme(this);
+		}
+	}
+	
+	public void addBiologos(BiologoBean biologo) {
+		
+		if(!biologosInforme.contains(biologo)) {
+			
+			biologosInforme.add(biologo);
+			biologo.addInformes(this);
 		}
 	}
 

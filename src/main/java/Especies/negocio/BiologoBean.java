@@ -38,11 +38,7 @@ public class BiologoBean {
 		if(!informesBiologo.contains(informe)) {
 			
 			informesBiologo.add(informe);
-			List<BiologoBean> biologos = informe.getBiologosInforme();
-			if(!biologos.contains(this)) {
-				
-				biologos.add(this);
-			}
+			informe.addBiologos(this);
 		}
 	}
 	

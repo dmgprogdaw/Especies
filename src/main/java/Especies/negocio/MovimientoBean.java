@@ -38,17 +38,14 @@ public class MovimientoBean {
 	@ManyToMany
 	private List<InformeBean> movimientosInforme = new ArrayList<InformeBean>();
 
-	/*public void addMivimientosInforme(InformeBean informe) {
+	public void addMovimientosInforme(InformeBean informe) {
 		
 		if(!movimientosInforme.contains(informe)) {
 			
 			movimientosInforme.add(informe);
-			List<MovimientoBean> movimiento = informe.getInformeMovimientos();
-			if(movimiento.contains(this)) {
-				movimiento.add(this);
-			}
+			informe.addInformeMovimientos(this);
 		}
-	}*/
+	}
 	
 	
 	public List<InformeBean> getMovimientosInforme() {
