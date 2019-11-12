@@ -41,7 +41,6 @@ public class InformeBean {
 	}
 
 	
-	
 	public List<BiologoBean> getBiologosInforme() {
 		return biologosInforme;
 	}
