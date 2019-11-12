@@ -95,17 +95,17 @@ public class Start {
 		CreateTorreta torretas = new CreateTorreta();
 		torretas.create(torreta1);
 		
-		/**** CREAMOS LOS MOVIMIENTOS ****/
-		CreateMovimiento movimientos = new CreateMovimiento();
-		movimientos.create(movimiento1);
+		/**** CREAMOS LOS BIOLOGOS ****/
+		CreateBiologo biologos = new CreateBiologo();
+		biologos.create(pedro);
 		
 		/**** CREAMOS LOS INFORMES ****/
 		CreateInforme informes = new CreateInforme();
 		informes.create(informe1);
 		
-		/**** CREAMOS LOS BIOLOGOS ****/
-		CreateBiologo biologos = new CreateBiologo();
-		biologos.create(pedro);
+		/**** CREAMOS LOS MOVIMIENTOS ****/
+		CreateMovimiento movimientos = new CreateMovimiento();
+		movimientos.create(movimiento1);
 		
 		
 		ConnectionEntityManagerFactory.getEntityManagerFactory().close();
